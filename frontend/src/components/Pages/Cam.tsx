@@ -16,7 +16,7 @@ const Cam = () => {
     setImgSrc(imageSrc);
   }, [webcamRef]);
 
-
+/*  onghjkj*/
   return (
     <div className="container"
      style={{border:"1px solid red",
