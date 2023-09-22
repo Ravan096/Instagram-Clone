@@ -7,13 +7,13 @@ const sendMail= async (option)=>{
         port: 587,
         service:"outlook",
         auth: {
-          user: "lakshman.academy@outlook.com",
-          pass: "Laksh@1491",
+          user: "xxxx@outlook.com",
+          pass: "XXXXXXXXXX",
         },
       });
 
       let mailOptions = {
-        from: 'lakshman.academy@outlook.com',
+        from: 'xxxxxxx@outlook.com',
         to: option.email,
         subject: option.subject,
         text: option.message
