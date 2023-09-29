@@ -68,10 +68,10 @@ const Profile = () => {
                             alignItems:"center"
                             }}>
 
-                  <Link to={'/'}><HomeOutlinedIcon style={{fontSize:"2.5rem"}}/></Link>
-                  <Link to={'/chat'}><TelegramIcon style={{fontSize:"2.5rem"}}/></Link>
-                  <Link to={'/explore'}><ExploreOutlinedIcon style={{fontSize:"2.5rem"}}/></Link>
-                  <Link to={'/like'}><FavoriteBorderOutlinedIcon style={{fontSize:"2.5rem"}}/></Link>
+                  <Link to={'/'}><HomeOutlinedIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
+                  <Link to={'/chat'}><TelegramIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
+                  <Link to={'/explore'}><ExploreOutlinedIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
+                  <Link to={'/like'}><FavoriteBorderOutlinedIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
                   </Box>
 
                   <Box sx={{ width:"10%",}}>
