@@ -3,6 +3,7 @@ import {useRef,useState,useCallback} from 'react';
 import CameraOutlinedIcon from '@mui/icons-material/CameraOutlined';
 import CameraswitchOutlinedIcon from '@mui/icons-material/CameraswitchOutlined';
 import FlipCameraAndroidOutlinedIcon from '@mui/icons-material/FlipCameraAndroidOutlined';
+import { Container,Box,Button } from "@mui/material";
 
 const Cam = () => {
   const webcamRef = useRef(null);
@@ -16,33 +17,26 @@ const Cam = () => {
     setImgSrc(imageSrc);
   }, [webcamRef]);
 
-/*  onghjkj*/
+
   return (
-    <div className="container"
-     style={{border:"1px solid red",
-             width:"50%",
-             margin:"auto",
-             height:"90vh",
-             display:"flex",
-             alignItems:"center",
-             flexDirection:"column",
-             justifyContent:"space-around"}}>
+    <Container
+     sx={{border:1,borderColor:"blue",width:"100vw",height:"100vh",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
     {imgSrc ? (
       <img src={imgSrc} alt="webcam" />
     ) : (
-      <Webcam style={{width:"90%",height:"90%"}}  ref={webcamRef} />
+      <Webcam style={{width:"100%",height:"100%"}}  ref={webcamRef} />
     )}
-    <div className="btn-container">
+    <Box sx={{display:"flex",alignItems:"center",justifyContent:"center"}}>
       {imgSrc ? (
-        <button onClick={retake}><FlipCameraAndroidOutlinedIcon/></button>
+        <Button variant="outlined" sx={{ml:"1vw",borderRadius:"30px",p:"0.5vw"}} onClick={retake}><FlipCameraAndroidOutlinedIcon fontSize={"large"}/></Button>
       ) : (
-        <div>
-          <button onClick={capture}><CameraOutlinedIcon/></button>
-        <button><CameraswitchOutlinedIcon/></button>
-        </div>
+        <Box>
+          <Button variant="outlined" sx={{ml:"1vw",borderRadius:"30px",p:"0.5vw"}} onClick={capture}><CameraOutlinedIcon fontSize={"large"}/></Button>
+        <Button variant="outlined" sx={{ml:"1vw",borderRadius:"30px",p:"0.5vw"}}><CameraswitchOutlinedIcon fontSize={"large"}/></Button>
+        </Box>
       )}
-    </div>
-  </div>
+    </Box>
+  </Container>
   )
 }
 

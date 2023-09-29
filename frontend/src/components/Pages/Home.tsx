@@ -7,19 +7,30 @@ import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
+import BookmarkRoundedIcon from '@mui/icons-material/BookmarkRounded';
 import MoreHorizRoundedIcon from '@mui/icons-material/MoreHorizRounded';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import proimg from '../../assets/peakpx.jpg';
+import img1 from '../../assets/jzc4hvrdcosbikvx0xzf.webp';
+import img2 from '../../assets/th.png';
+import img3 from '../../assets/header.1af6756a.png';
+import img4 from '../../assets/main-home-slider-image.jpg';
 import {useState} from 'react';
+import Comment from '../Comment/Comment';
 
 
 
 
 
-
+interface ImageType {
+  image: string;
+}
 
 const Home = () => {
+
+  
 
   const [followBtn, setFollowBtn]= useState("Follow");
 
@@ -81,10 +92,10 @@ const Home = () => {
                     }}>
 
           {/* <HomeOutlinedIcon style={{fontSize:"2.5rem"}}/> */}
-          <Link to={'/chat'}><TelegramIcon style={{fontSize:"2.5rem"}}/></Link>
-          <Link to={'/explore'}><ExploreOutlinedIcon style={{fontSize:"2.5rem"}}/></Link>
-          <Link to={'/like'}><FavoriteBorderOutlinedIcon style={{fontSize:"2.5rem"}}/></Link>
-          <Link to={'/userprofile'}><PermIdentityOutlinedIcon style={{fontSize:"2.5rem"}}/></Link>
+          <Link to={'/chat'}><TelegramIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
+          <Link to={'/explore'}><ExploreOutlinedIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
+          <Link to={'/like'}><FavoriteBorderOutlinedIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
+          <Link to={'/userprofile'}><PermIdentityOutlinedIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
           </Box>
 
 </Box >
@@ -97,7 +108,8 @@ const Home = () => {
       <Stack direction={["column",'row']}
              sx={{
               // border:1,
-              width:"100%"
+              width:"100%",
+              mt:[1.5,0]
             }}>
 
         {/* home content start */}
@@ -108,10 +120,10 @@ const Home = () => {
                   alignItems:"center",
                   flexDirection:"column",}}>
 
-          <HomeCard/>
-          <HomeCard/>
-          <HomeCard/>
-          <HomeCard/>
+          <HomeCard image={img1}/>
+          <HomeCard image={img2}/>
+          <HomeCard image={img3}/>
+          <HomeCard image={img4}/> 
         </Box>
         {/* home content end */}
 
@@ -335,7 +347,32 @@ const Home = () => {
 }
 
 
-const HomeCard = ()=>{
+const HomeCard = ({image}:any)=>{
+
+
+  const [liked, setLiked] = useState(false);
+  const [save, setSave] = useState(false);
+  const [c, setColor] = useState(false);
+  const [showComments, setShowComments]=useState(false);
+
+
+  const handleShowComments = () => {
+    setShowComments(!showComments)
+  };
+
+  const handleLike=()=> {
+    setLiked(!liked);
+  }
+  const handleSave=()=> {
+    setSave(!save);
+  }
+
+  const Test =()=>{
+    setColor(!c);
+  }
+
+
+
   return (
     <Box sx={{
               // border:1, 
@@ -376,10 +413,13 @@ const HomeCard = ()=>{
       <Box sx={{
                             width: 350,
                             height: 350,
-                            backgroundColor: 'greenyellow',
+                            backgroundColor: 'black',
                             '&:hover': {
                             backgroundColor: 'primary',
-                            opacity: [0.9, 0.8, 0.7],},}}/>
+                            opacity: [0.9, 0.8, 0.7],},}}>
+                              <img src={image} alt="test" style={{objectFit:'contain',height:"100%",width:"100%"}}/>
+                            </Box>
+                            
       </Box>
 
 
@@ -392,19 +432,31 @@ const HomeCard = ()=>{
                   display:"flex",
                   alignItems:"center",
                   justifyContent:"space-evenly",}}>
-        <FavoriteBorderOutlinedIcon style={{fontSize:"2.5rem",marginLeft:"2%"}}/>
-      <ModeCommentOutlinedIcon style={{fontSize:"2.5rem",marginLeft:"2%"}}/>
+        {/* <FavoriteIcon onClick={handleClick}  style={{fontSize:"2.5rem",marginLeft:"2%",color: liked ? 'crimson' : 'black'}}/> */}
+        {  liked ?  <FavoriteIcon onClick={handleLike}  style={{fontSize:"2.5rem",marginLeft:"2%",color: 'crimson'}}/>:
+        <FavoriteBorderOutlinedIcon onClick={handleLike} style={{fontSize:"2.5rem",marginLeft:"2%"}}/>}
+
+      <ModeCommentOutlinedIcon onClick={handleShowComments} style={{fontSize:"2.5rem",marginLeft:"2%",color:c? 'red':'black'}}/>
+
         </Box>
       <Box sx={{width:"75%",
                 display:"flex",
                 alignItems:"center",
                 justifyContent:"flex-end",
                 }}>
-      <BookmarkBorderOutlinedIcon style={{fontSize:"2.5rem",marginRight:"3%"}}/>
+      { save ? <BookmarkRoundedIcon onClick={handleSave} style={{fontSize:"2.5rem",marginRight:"3%"}}/>:
+      <BookmarkBorderOutlinedIcon onClick={handleSave} style={{fontSize:"2.5rem",marginRight:"3%"}}/>}
       </Box>
 
 
       </Box>
+
+      {/* comments  */}
+      <Box sx={{width:"100%"}}>
+          {
+          showComments ? <Comment/> : ""
+          }
+        </Box>
 
 
 
@@ -420,7 +472,7 @@ const HomeCard = ()=>{
           nae11 work vibes comming at you from Instagram HQ #instagramhq
         </Typography>
 
-        <Typography variant={"subtitle2"} gutterBottom sx={{ml:1.1}}>
+        <Typography onClick={handleShowComments} variant={"subtitle2"} gutterBottom sx={{ml:1.1}}>
           view all 18 comments
         </Typography>
 
@@ -430,7 +482,6 @@ const HomeCard = ()=>{
         <Typography sx={{ml:1.1}}>
           24 Minutes ago
         </Typography>
-        <Input placeholder="Add a comment" variant="plain" />
         <MoreHorizRoundedIcon style={{marginLeft:"2%"}}/>
 
       </Box>

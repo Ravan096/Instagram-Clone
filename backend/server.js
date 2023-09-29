@@ -3,6 +3,13 @@ const dotenv= require('dotenv');
 const app= require('./app');
 const connectDatabase = require('./config/connectDatabase');
 
+
+process.on("uncaughtException",(err)=>{
+    console.log(`error:${err.message}`);
+    console.log(`server is shutting down due to uncaught error`);
+    process.exit(1);
+})
+
 // dotnet env config
 
 dotenv.config({path:'./backend/config/config.env'})
@@ -12,6 +19,15 @@ connectDatabase();
 
 
 
-app.listen(process.env.Port, ()=>{
+const server =app.listen(process.env.Port, ()=>{
     console.log(`server is running on http://localhost:${process.env.Port}`);
+})
+
+
+process.on("unhandledRejection",(err)=>{
+    console.log(`error: ${err.message}`);
+    console.log(`server is shutting down due to unhandled rejection`)
+    server.close(()=>{
+        process.exit(1)
+    })
 })

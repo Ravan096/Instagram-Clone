@@ -63,11 +63,11 @@ const Userprofile = () => {
                     alignItems:"center"
                     }}>
 
-<Link to={'/'}><HomeOutlinedIcon style={{fontSize:"2.5rem"}}/></Link>
+<Link to={'/'}><HomeOutlinedIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
           {/* <TelegramIcon style={{fontSize:"2.5rem"}}/> */}
-<Link to={'/explore'}><ExploreOutlinedIcon style={{fontSize:"2.5rem"}}/></Link>
-<Link to={'/like'}><FavoriteBorderOutlinedIcon style={{fontSize:"2.5rem"}}/></Link>
-<Link to={'/profile'}><PermIdentityOutlinedIcon style={{fontSize:"2.5rem"}}/></Link>
+<Link to={'/explore'}><ExploreOutlinedIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
+<Link to={'/like'}><FavoriteBorderOutlinedIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
+<Link to={'/profile'}><PermIdentityOutlinedIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
           </Box>
 
 </Box >
@@ -76,47 +76,70 @@ const Userprofile = () => {
 {/*profile start here*/}
 
 <Box sx={{ 
-        border:1,
+        // border:1,
         borderColor:"red",
         height:["100%","30%"],
         width:"100%",
         display:"flex",
-        flexDirection:["column","row"],
+        flexDirection:["column","column"],
         mt:6,
         // flexDirection:"column",
-        alignItems:"center"}}>
+        alignItems:["flex-start","flex-start"]}}>
 
           <Box sx={{
-                    border:1, 
-                    width:"30%",
+                    // border:1, 
+                    borderColor:"limegreen",
+                    width:["100%","30%"],
                     height:"100%",
                     display:"flex",
                     alignItems:"center",
-                    justifyContent:"center"}}>
+                    justifyContent:"space-between"}}>
 
           <Avatar 
                   src={proimg}
                   sx={{
                       //  border:1,
                        borderColor:"greenyellow",
-                       height:98,
-                       width:98,
+                       height:96,
+                       width:96,
                        mt:2
                        }}/>
+
+            <Box sx={{display:"flex",
+                                width:"70%",
+                                alignItems:"center",
+                                mt:1,
+                                justifyContent:"space-between"}}>
+
+            <Typography fontWeight={"600"} sx={{mt:1}}>
+                            1,475 Posts
+                          </Typography>
+
+                          <Typography fontWeight={"600"} sx={{mt:1}}>
+                            15m followers
+                          </Typography>
+                          
+                          <Typography fontWeight={"600"} sx={{mt:1}}>
+                            4,999 following
+                          </Typography>
+
+                        </Box>
+
+          
           </Box>
 
 
 
           <Box sx={{
-                    border:1,
+                    // border:1,
                     height:"100%",
-                    width:"80%",
-                    borderColor:"red"}}>
+                    width:"100%",
+                    borderColor:"blue",display:"flex",flexDirection:"column",alignItems:"flex-start"}}>
 
             <Box sx={{display:"flex",
                       alignItems:"center",
-                      width:"30%",
-                    //   border:1,
+                      width:["100%","30%"],
+                      // border:1,
                       justifyContent:"space-around"}}>
 
             <Typography variant='h5' sx={{mt:1}}>
@@ -131,33 +154,9 @@ const Userprofile = () => {
             </Box>
 
 
-
-
-
-            <Box sx={{display:"flex",
-                                width:"30%",
-                                alignItems:"center",
-                                mt:1,
-                                justifyContent:"space-around"}}>
-
-<Typography fontWeight={"600"} sx={{mt:1}}>
-                            1,475 Posts
-                          </Typography>
-
-                          <Typography fontWeight={"600"} sx={{mt:1}}>
-                            15m followers
-                          </Typography>
-                          
-                          <Typography fontWeight={"600"} sx={{mt:1}}>
-                            4,999 following
-                          </Typography>
-
-                        </Box>
-
-
                         <Box sx={{
                                 //   border:1,
-                                  width:"45%"}}>
+                                  width:["100%","45%"]}}>
                         <Typography variant="body2" sx={{
                                         mt:1
                                         }}>

@@ -40,7 +40,7 @@ const Chat = () => {
   return (
     <Stack sx={{
       // border:1,
-      height:"96vh",width:"80%",margin:"auto"}}>
+      height:"96vh",width:["80%","80%"],margin:"auto"}}>
       <Box sx={{
         // border:1,
         height:"15%",
@@ -97,9 +97,13 @@ const Chat = () => {
 
 
 {/* chat body start */}
-<Box sx={{border:1,m:2,display:"flex",flexDirection:["column","row"]}}>
+<Box sx={{m:2,display:"flex",flexDirection:["column","row"],borderColor:"red",width:"100%"}}>
   {/* chat users list start */}
-  <Box sx={{border:1, borderColor:"red",width:"40%",display:["none","block"]}}>
+  <Box sx={{
+          //  border:1,
+           borderColor:"green",
+           width:"40%",
+           display:["none","block"]}}>
     
     <Box sx={{display:"flex"}}>
     <Avatar 
@@ -203,13 +207,19 @@ const Chat = () => {
 
 
   {/* chat content start */}
-  <Box sx={{border:1, borderColor:"greenyellow",width:["100%","60%"],height:["100vw","100%"]}}>
+  <Box sx={{
+            // border:1,
+            borderColor:"green",
+            width:["100%","60%"],
+            height:["100vw","100%"]}}>
 
     <Box sx={{display:"flex",
               // border:1,
               justifyContent:"space-between",
                alignItems:"center",
-               width:["100%","60%"]}}>
+               width:["100%","60%"],
+               height:"15%"
+               }}>
 
     <ArrowBackIosOutlinedIcon style={{fontSize:"3rem"}}/>
     <Avatar 
@@ -226,13 +236,25 @@ const Chat = () => {
                         </Typography>
                         </Box>
 
-                        <VideocamOutlinedIcon style={{fontSize:"3rem"}}/>
-                        <OutlinedFlagOutlinedIcon style={{fontSize:"3rem"}}/>
-                        <InfoOutlinedIcon style={{fontSize:"3rem"}}/>
+                        <Link to={'/cam'}><VideocamOutlinedIcon sx={{fontSize:["2rem","3rem"]}}/></Link>
+                        <Link to={'/cam'}><OutlinedFlagOutlinedIcon sx={{fontSize:["2rem","3rem"]}}/></Link>
+                        <Link to={'/cam'}><InfoOutlinedIcon sx={{fontSize:["2rem","3rem"]}}/></Link>
 
     </Box>
     {/* Chat */}
-    <Box sx={{border:1,borderColor:"crimson",width:'60%',height:"100%"}}>
+    <Box sx={{
+              // border:1,
+              borderColor:"blue",
+              width:["100%",'60%'],
+              height:"85%",
+              display:"flex",
+              flexDirection:"column"}}>
+
+      <Box sx={{
+        // border:1,
+        height:"85%",
+        width:"100%"}}>
+
       <Typography variant='h6' sx={{
                                     p:["1","0vh 1vh"],
                                     borderRadius:2,
@@ -247,14 +269,15 @@ const Chat = () => {
                                     backgroundColor:'#acde81'}}>
         hello
       </Typography>
+      </Box>
 
       <Box sx={{
                 display:"flex",
                 alignItems:"center",
-                justifyContent:"space-evenly"}}>
+                justifyContent:"space-between",
+                height:"15%",width:"100%"}}>
 
-<Link to={'/cam'}><CameraAltIcon style={{fontSize:"3rem",
-                              backgroundColor:"#1280b0",color:"white",
+<Link to={'/cam'}><CameraAltIcon sx={{fontSize:["2rem","3rem"],backgroundColor:"#1280b0",color:"white",
                               borderRadius:"25px",padding:".5vh"}}/></Link>
 
         <Input  variant="outlined"
@@ -265,9 +288,9 @@ const Chat = () => {
                  onKeyPress={(e)=>e.key==="Enter"? sendHandler():null}
 
                  />
-        <MicIcon style={{fontSize:"3rem"}}/>
-        <ImageIcon style={{fontSize:"3rem"}}/>
-        <EmojiEmotionsOutlinedIcon style={{fontSize:"3rem"}}/>
+        <Link to={'/cam'}><MicIcon sx={{fontSize:["2rem","3rem"]}}/></Link>
+        <Link to={'/cam'}><ImageIcon sx={{fontSize:["2rem","3rem"]}}/></Link>
+        <Link to={'/cam'}><EmojiEmotionsOutlinedIcon sx={{fontSize:["2rem","3rem"]}}/></Link>
 
       </Box>
 

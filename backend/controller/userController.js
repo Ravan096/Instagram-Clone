@@ -4,12 +4,10 @@ const sendMail = require('../utils/sendMail');
 
 
 
-
-
-
-
+// -----------------register user api
 exports.register = async (req,res,next)=>{
-    const {email,username,name,password,role}= req.body;
+     try {
+        const {email,username,name,password,role}= req.body;
     const newuser= await User.create(
         {
         email,
@@ -18,36 +16,70 @@ exports.register = async (req,res,next)=>{
         password,
         role
     });
-     res.status(201).json({
-        success:true,
-        newuser
-     })
+        return res.status(201).json({
+            success:true,
+            newuser});
+        }catch (err){
+        if (err.code == 11000) {
+            res.status(400).json({
+              success:false,
+              message:(`user already exists`)
+            })
+        //   const key = Object.keys (err.keyValue)[0];
+        //   throw new Error (`${key} already exists`);
+        } else {
+          throw err;  
+        }
+      }
 }
 
 
 
-exports.loginUser = async(req, res, next)=>{
+
+// -----------------login user api
+
+exports.loginUser = async (req, res, next)=>{
     const {email,password}= req.body;
     if(!email || !password){
-        return next("invalid email or password")
-    }
-
-    const user= await User.findOne({email}).select(+password);
-    if(!user){
-        return next(res.status(400).json({
+        return res.status(400).json({
             success:false,
             message:"invalid user or password"
-        }))
+        })
     }
-    const ispasswordMatched= user.comparePassword(password);
+    const user= await User.findOne({email}).select(`+password`);
+    if(!user){
+        returnres.status(400).json({
+            success:false,
+            message:"invalid user or password test"
+        })
+    }
+    const ispasswordMatched= user.comparePassword(`+password`);
     if(!ispasswordMatched){
-        return next(cre)
+        return res.status(400).json({
+            success:false,
+            message:"invalid user or password"
+        })
     }
-    res.status(201).json({
+    res.status(200).json({
         success:true,
         user
     })
 }
+// ------------getUser------------
+exports.getUser = async (req,res,next)=>{
+    const {id}=req.body;
+    const user=await User.findById(id);
+    res.status(200).json({
+        success:true,
+        user
+    })
+}
+
+
+
+
+
+
 
 exports.resetPassword = async (req,res,next)=>{
     const {email}= req.body;

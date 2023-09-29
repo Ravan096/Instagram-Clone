@@ -1,23 +1,22 @@
-import Home from './components/Pages/Home';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Profile from './components/Pages/Profile';
-import Login from './components/Pages/Login';
-import SignUp from './components/Pages/SignUp';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import ForgotPassword from './components/Pages/ForgotPassword';
+import Home from './components/Pages/Home';
+import Login from './components/Pages/Login';
+import Profile from './components/Pages/Profile';
+import SignUp from './components/Pages/SignUp';
 import Userprofile from './components/Pages/Userprofile';
 // import Header from './components/Pages/Header';/
+import Cam from './components/Pages/Cam';
+import Chat from './components/Pages/Chat';
+import EditProfile from './components/Pages/EditProfile';
 import Explore from './components/Pages/Explore';
 import Like from './components/Pages/Like';
-import Chat from './components/Pages/Chat';
-import Cam from './components/Pages/Cam';
-import EditProfile from './components/Pages/EditProfile';
 
 function App() {
  
   return (
    <Router>
     {/* <Header/> */}
-    
     <Routes>
       <Route path='/' element={<Home/>} />
       <Route path='/profile' element={<Profile/>}/>
