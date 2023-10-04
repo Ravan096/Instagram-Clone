@@ -6,15 +6,20 @@ import FlipCameraAndroidOutlinedIcon from '@mui/icons-material/FlipCameraAndroid
 import { Container,Box,Button } from "@mui/material";
 
 const Cam = () => {
-  const webcamRef = useRef(null);
-  const [imgSrc, setImgSrc] = useState(null);
+  // const webcamRef = useRef(null);
+  const webcamRef = useRef<Webcam>(null);
+  // const [imgSrc, setImgSrc] = useState(null);
+  const [imgSrc, setImgSrc] = useState<string | null>(null);
   const retake = () => {
     setImgSrc(null);
   };
 
   const capture = useCallback(() => {
-    const imageSrc = webcamRef.current.getScreenshot();
-    setImgSrc(imageSrc);
+    const imageSrc = webcamRef.current?.getScreenshot();
+    if (imageSrc) {
+      setImgSrc(imageSrc);
+    }
+    // setImgSrc(imageSrc);
   }, [webcamRef]);
 
 

@@ -5,15 +5,44 @@ import {
     Stack,
     Typography
 } from '@mui/material';
-import { Link } from 'react-router-dom';
+import  {toast}  from 'react-hot-toast';
+import { Link, useNavigate} from 'react-router-dom';
 import LockResetSharpIcon from '@mui/icons-material/LockResetSharp';
 import { useState } from 'react';
+import axios from 'axios';
 
 
 const ForgotPassword = () => {
-    const [username, setUsername]= useState("");
-    const ResetHandler=()=>{
-        console.log({username})
+    const [email, setEmail]= useState("");
+    const history= useNavigate();
+
+
+
+    const ResetHandler= async()=>{
+        console.log({email})
+          try{
+              await axios.post("http://localhost:3000/api/v1/resetpassword",{
+                email
+              })
+              .then(res=>{
+                console.log(res.data)
+                  if(res.data){
+                    toast.success("Email sent successfully");
+                      history("/")
+                  }
+                  else if(!res.data){
+                      alert("User does not exist ")
+                  }
+              })
+              .catch(e=>{
+                  alert(e)
+                  console.log(e);
+              })
+  
+          }
+          catch(e){
+              console.log(e);
+          }
     }
   return (
     <Container sx={{
@@ -31,9 +60,9 @@ const ForgotPassword = () => {
     }}/>
 
 
-<Stack sx={{ width:"60%",height:"80%",display:"flex",
+<Stack sx={{ width:["100%","60%"],height:"80%",display:"flex",
         alignItems:"center"}}>
-<Box sx={{border:1, width:"60%",
+<Box sx={{border:1, width:["100%","60%"],
 borderColor: 'grey.500',
           display:"flex",
           flexDirection:"column",
@@ -51,12 +80,13 @@ borderColor: 'grey.500',
 
     <Input  variant="outlined"
      placeholder="Phone number, username, or email"
-     sx={{mt:2}}
-     value={username}
-     onChange={(e)=>setUsername(e.target.value)}
+     sx={{mt:2,width:[300,1/2]}}
+     value={email}
+     onChange={(e)=>setEmail(e.target.value)}
      />
-     <Button disabled={!username}
+     <Button disabled={!email}
       sx={{width:1/2, mt:2,backgroundColor:"rgb(50, 193, 250)"}}
+      type="submit"
       onClick={ResetHandler}
       >
         Send login link
@@ -68,7 +98,7 @@ borderColor: 'grey.500',
         <Link to={"/forgotpassword"} style={{marginTop:"1vh",textDecoration:"none"}}>
            Cant't reset your password?
         </Link>
-        <Typography sx={{mt:2,width:1/2}}>
+        <Typography sx={{mt:2,width:[300,1/2],textAlign:"center"}}>
             --------------------OR--------------------
             
         </Typography>
@@ -78,11 +108,11 @@ borderColor: 'grey.500',
         </Link>
 </Box>
 
-<Box sx={{border:1,mt:2,width:"60%",borderColor: 'grey.500',
+<Box sx={{border:1,mt:2,width:["100%","60%"],borderColor: 'grey.500',
           display:"flex",alignItems:"center",justifyContent:"center",
           padding:"1vh"}}>
 
-        <Link to={"/login"} style={{textDecoration:"none"}}> 
+        <Link to={"/"} style={{textDecoration:"none"}}> 
             <Button variant='plain'>
             Back to login
             </Button>

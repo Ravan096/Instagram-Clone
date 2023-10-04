@@ -84,7 +84,7 @@ const Chat = () => {
                     alignItems:"center"
                     }}>
 
-           <Link to={'/'}><HomeOutlinedIcon style={{fontSize:"2.5rem"}}/></Link>
+           <Link to={'/home'}><HomeOutlinedIcon style={{fontSize:"2.5rem"}}/></Link>
           {/* <TelegramIcon style={{fontSize:"2.5rem"}}/> */}
           <Link to={'/explore'}><ExploreOutlinedIcon style={{fontSize:"2.5rem"}}/></Link>
           <Link to={'/like'}><FavoriteBorderOutlinedIcon style={{fontSize:"2.5rem"}}/></Link>

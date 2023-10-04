@@ -17,16 +17,28 @@ import img1 from '../../assets/jzc4hvrdcosbikvx0xzf.webp';
 import img2 from '../../assets/th.png';
 import img3 from '../../assets/header.1af6756a.png';
 import img4 from '../../assets/main-home-slider-image.jpg';
+import img5 from '../../assets/WallpaperDog-10781474.jpg';
+import img6 from '../../assets/WallpaperDog-10781485.jpg';
+import img7 from '../../assets/WallpaperDog-10788782.jpg';
+import img8 from '../../assets/WallpaperDog-10804574.jpg';
+import img9 from '../../assets/WallpaperDog-10804598.jpg';
+import img10 from '../../assets/WallpaperDog-10916426.jpg';
+import img11 from '../../assets/WallpaperDog-10916523.jpg';
+import img12 from '../../assets/WallpaperDog-20593498.jpg';
+import img13 from '../../assets/WallpaperDog-20618096.jpg';
+import img14 from '../../assets/WallpaperDog-20618169.jpg';
+import img15 from '../../assets/WallpaperDog-20618175.jpg';
+import img16 from '../../assets/WallpaperDog-20618331.jpg';
+import img17 from '../../assets/WallpaperDog-20618358.jpg';
+import img18 from '../../assets/WallpaperDog-5505040.jpg';
+import img19 from '../../assets/WallpaperDog-5549881.jpg';
+import img20 from '../../assets/WallpaperDog-5549905.jpg';
 import {useState} from 'react';
 import Comment from '../Comment/Comment';
 
 
 
 
-
-interface ImageType {
-  image: string;
-}
 
 const Home = () => {
 
@@ -124,6 +136,22 @@ const Home = () => {
           <HomeCard image={img2}/>
           <HomeCard image={img3}/>
           <HomeCard image={img4}/> 
+          <HomeCard image={img5}/> 
+          <HomeCard image={img6}/> 
+          <HomeCard image={img7}/> 
+          <HomeCard image={img8}/> 
+          <HomeCard image={img9}/> 
+          <HomeCard image={img10}/> 
+          <HomeCard image={img11}/> 
+          <HomeCard image={img12}/> 
+          <HomeCard image={img13}/> 
+          <HomeCard image={img14}/> 
+          <HomeCard image={img15}/> 
+          <HomeCard image={img16}/> 
+          <HomeCard image={img17}/> 
+          <HomeCard image={img18}/> 
+          <HomeCard image={img19}/> 
+          <HomeCard image={img20}/> 
         </Box>
         {/* home content end */}
 
@@ -352,7 +380,7 @@ const HomeCard = ({image}:any)=>{
 
   const [liked, setLiked] = useState(false);
   const [save, setSave] = useState(false);
-  const [c, setColor] = useState(false);
+  // const [c, setColor] = useState(false);
   const [showComments, setShowComments]=useState(false);
 
 
@@ -367,9 +395,9 @@ const HomeCard = ({image}:any)=>{
     setSave(!save);
   }
 
-  const Test =()=>{
-    setColor(!c);
-  }
+  // const Test =()=>{
+  //   setColor(!c);
+  // }
 
 
 
@@ -436,7 +464,7 @@ const HomeCard = ({image}:any)=>{
         {  liked ?  <FavoriteIcon onClick={handleLike}  style={{fontSize:"2.5rem",marginLeft:"2%",color: 'crimson'}}/>:
         <FavoriteBorderOutlinedIcon onClick={handleLike} style={{fontSize:"2.5rem",marginLeft:"2%"}}/>}
 
-      <ModeCommentOutlinedIcon onClick={handleShowComments} style={{fontSize:"2.5rem",marginLeft:"2%",color:c? 'red':'black'}}/>
+      <ModeCommentOutlinedIcon onClick={handleShowComments} style={{fontSize:"2.5rem",marginLeft:"2%",}}/>
 
         </Box>
       <Box sx={{width:"75%",

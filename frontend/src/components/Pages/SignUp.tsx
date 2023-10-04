@@ -2,45 +2,47 @@ import {Box,
     Container,
     Typography,
     Stack} from '@mui/material';
-import {Link} from 'react-router-dom';
+import {Link,useNavigate} from 'react-router-dom';
 import {Input,Button} from '@mui/joy';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import {useState} from 'react';
 import axios from 'axios';
+import  {toast}  from 'react-hot-toast';
 
 const SignUp = () => {
     const [username, setUsername]= useState("");
-    const [fullname, setFullName]= useState("");
+    const [name, setName]= useState("");
     const [email, setEmail]= useState("");
   const [password, setPassword]=useState("");
-
   
-
-  const SignupHandle= async ()=>{
-
-    const signUpUser = new Object({
-      "email": email,
-      "username": username,
-      "name": fullname,
-      "password": password
-
-    });
-
-    // signUpUser.set("email", email);
-    // signUpUser.set("username", username);+
-    // signUpUser.set("name", fullname);
-    // signUpUser.set("password", password);
-        const config = {
-          headers: { "Content-Type": "application/json" },
-        };
+  const history= useNavigate();
     
-        const data  = await axios.post(
-          `http://localhost:3000/api/v1/register`,
-          signUpUser,
-          config
-        );
-        console.log(data)
-    };
+    const SignUpHandle=  async ()=>{
+      console.log({email,password});
+          try{
+              await axios.post("http://localhost:3000/api/v1/register",{
+                email,username,name,password
+              })
+              .then(res=>{
+                console.log(res.data)
+                  if(res.data){
+                    toast.success("Account Created Successfully");
+                      history("/")
+                  }
+                  else if(!res.data){
+                      alert("User does not exist ")
+                  }
+              })
+              .catch(e=>{
+                  alert(e)
+                  console.log(e);
+              })
+  
+          }
+          catch(e){
+              console.log(e);
+          }
+      }
 
 
 
@@ -81,7 +83,7 @@ const SignUp = () => {
             <FacebookIcon/>
             Log in with Facebook
         </Button>
-        <Typography sx={{mt:2,width:[300,1/2]}}>
+        <Typography sx={{mt:2,width:[300,1/2],textAlign:"center"}}>
                         --------------------OR--------------------
                         </Typography>
     <Input  variant="outlined"
@@ -94,8 +96,8 @@ const SignUp = () => {
      <Input placeholder="Full Name"
       variant="outlined"
       sx={{mt:1,width:[300,1/2]}}
-      value={fullname}
-      onChange={(e)=>setFullName(e.target.value)}
+      value={name}
+      onChange={(e)=>setName(e.target.value)}
        />
      <Input placeholder="Username"
       variant="outlined"
@@ -125,14 +127,15 @@ const SignUp = () => {
 
         <Button sx={{width:1/2,
                      mt:2,backgroundColor:"rgb(50, 193, 250)", mb:2}}
-                     onClick={SignupHandle}>
+                     type="submit"
+                     onClick={SignUpHandle}>
         Sign up
         </Button>
 </Box>
 <Box sx={{border:1,mt:2,width:["100%","60%"],borderColor: 'grey.500',
           display:"flex",alignItems:"center",justifyContent:"center",
           padding:"1vh"}}>
-        <Link to={"/login"} style={{textDecoration:"none"}}>
+        <Link to={"/"} style={{textDecoration:"none"}}>
              Have an account? 
             <Button variant='plain'>
             Log in
