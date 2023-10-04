@@ -3,18 +3,45 @@ import {Box,
     Typography,
     Stack} from '@mui/material';
 import {Input,Button} from '@mui/joy';
-import {Link} from 'react-router-dom';
+import {Link,useNavigate} from 'react-router-dom';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import { useState } from 'react';
+import axios from 'axios';
+import  {toast}  from 'react-hot-toast';
 
 
 const Login = () => {
-  const [username, setUsername]= useState("");
-  const [password, setPassword]=useState("");
+  const [email, setEmail]= useState("demo@mail.com");
+  const [password, setPassword]=useState("demo@123");
 
-  const LoginHandle=()=>{
-    console.log({username,password})
-  }
+  const history=useNavigate();
+
+
+   const LoginHandle=  async ()=>{
+    console.log({email,password});
+        try{
+            await axios.post("http://localhost:3000/api/v1/login",{
+              email,password
+            })
+            .then(res=>{
+              console.log(res.data)
+                if(res.data){
+                    history("/home")
+                }
+                else if(!res.data){
+                  toast.error("User Or Password error");
+                }
+            })
+            .catch(e=>{
+                alert(e)
+                console.log(e);
+            })
+
+        }
+        catch(e){
+            console.log(e);
+        }
+    }
 
 
   return (
@@ -44,8 +71,8 @@ const Login = () => {
                 <Input  variant="outlined"
                  placeholder="Phone number, username, or email"
                  sx={{mt:2,width:[300,1/2]}}
-                 value={username}
-                 onChange={(e)=>setUsername(e.target.value)}
+                 value={email}
+                 onChange={(e)=>setEmail(e.target.value)}
 
                  />
                
@@ -58,12 +85,13 @@ const Login = () => {
                    />
                 
 
-                 <Button
-                 onClick={LoginHandle}
-                  sx={{width:[300,1/2], mt:2,backgroundColor:"rgb(50, 193, 250)"}}>
+                 <Button 
+                  sx={{width:[300,1/2], mt:2,backgroundColor:"rgb(50, 193, 250)"}}
+                  type="submit"
+                  onClick={LoginHandle}>
                     Log in 
                     </Button>
-                    <Typography sx={{mt:2,width:[300,1/2]}}>
+                    <Typography sx={{mt:2,width:[300,1/2],textAlign:"center"}}>
                         --------------------OR--------------------
                         
                     </Typography>
