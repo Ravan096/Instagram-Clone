@@ -33,7 +33,7 @@ const Login = () => {
                 }
             })
             .catch(e=>{
-                alert(e)
+                toast.error("User or Password Wrong")
                 console.log(e);
             })
 

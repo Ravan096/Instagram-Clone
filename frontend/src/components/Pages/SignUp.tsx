@@ -30,11 +30,11 @@ const SignUp = () => {
                       history("/")
                   }
                   else if(!res.data){
-                      alert("User does not exist ")
+                      toast.custom("User already exist ")
                   }
               })
               .catch(e=>{
-                  alert(e)
+                  toast.error("User already exist")
                   console.log(e);
               })
   

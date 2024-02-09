@@ -11,6 +11,7 @@ import Chat from './components/Pages/Chat';
 import EditProfile from './components/Pages/EditProfile';
 import Explore from './components/Pages/Explore';
 import Like from './components/Pages/Like';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
  
@@ -31,6 +32,8 @@ function App() {
       <Route path='/editprofile' element={<EditProfile/>}/>
       {/* <Route path='/test' element={<Test/>}/> */}
     </Routes>
+    <Toaster position="top-center"
+  reverseOrder={true}/>
    </Router>
   )
 }
