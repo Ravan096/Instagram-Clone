@@ -12,12 +12,12 @@ import EditProfile from './components/Pages/EditProfile';
 import Explore from './components/Pages/Explore';
 import Like from './components/Pages/Like';
 import { Toaster } from 'react-hot-toast';
+import Header from './components/Pages/Header';
 
 function App() {
  
   return (
    <Router>
-    {/* <Header/> */}
     <Routes>
       <Route path='/home' element={<Home/>} />
       <Route path='/profile' element={<Profile/>}/>
@@ -32,6 +32,8 @@ function App() {
       <Route path='/editprofile' element={<EditProfile/>}/>
       {/* <Route path='/test' element={<Test/>}/> */}
     </Routes>
+    <Header/>
+
     <Toaster position="top-center"
   reverseOrder={true}/>
    </Router>

@@ -20,58 +20,6 @@ const Userprofile = () => {
         // border:1,
         height:"96vh",width:"80%",margin:"auto"}}>
 
-<Box sx={{
-        // border:1,
-        height:"15%",
-        width:"100%",
-        borderColor:"greenyellow",
-        display:"flex",
-        alignItems:"center",
-        justifyContent:"space-between"
-        }}>
-          <Box sx={{width:"20%",
-                    textAlign:"center",
-                    // border:1,
-                    display:"flex",
-                    alignContent:"center",
-                    justifyContent:'space-evenly'
-                    }}>
-
-          <InstagramIcon style={{fontSize:"3rem"}}/>
-          <Typography variant='h4' display={["none","block"]} fontFamily={"cursive"}>
-            Instagram
-          </Typography>
-          </Box>
-
-          <Box sx={{
-                    // border:1,
-                    width:"40%",
-                    display:["none","flex"],
-                    alignItems:"center",
-                    justifyContent:"center"
-                    }}>
-
-          <SearchIcon style={{fontSize:"2rem",color:"gray"}}/>
-          <Input placeholder='Search' variant='outlined'/>
-          </Box>
-
-          <Box sx={{
-                    // border:1,
-                    width:["75%","20%"],
-                    display:"flex",
-                    justifyContent:"space-evenly",
-                    alignItems:"center"
-                    }}>
-
-<Link to={'/home'}><HomeOutlinedIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
-          {/* <TelegramIcon style={{fontSize:"2.5rem"}}/> */}
-<Link to={'/explore'}><ExploreOutlinedIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
-<Link to={'/like'}><FavoriteBorderOutlinedIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
-<Link to={'/profile'}><PermIdentityOutlinedIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
-          </Box>
-
-</Box >
-
 
 {/*profile start here*/}
 

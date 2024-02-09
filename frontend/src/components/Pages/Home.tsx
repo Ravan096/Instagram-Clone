@@ -33,6 +33,20 @@ import img17 from '../../assets/WallpaperDog-20618358.jpg';
 import img18 from '../../assets/WallpaperDog-5505040.jpg';
 import img19 from '../../assets/WallpaperDog-5549881.jpg';
 import img20 from '../../assets/WallpaperDog-5549905.jpg';
+import img21 from '../../assets/model_img_10-500x625.jpg';
+import img22 from '../../assets/model_img_3-500x625.jpg';
+import img23 from '../../assets/model_img_6-500x625.jpg';
+import img24 from '../../assets/2.jpg.webp';
+import img25 from '../../assets/5.jpg.webp';
+import img26 from '../../assets/bg_1.jpg.webp';
+import img27 from '../../assets/bg_2.jpg.webp';
+import img28 from '../../assets/blog09-370x200_c.jpg';
+import img29 from '../../assets/7.jpg.webp';
+import img30 from '../../assets/category-1.jpg';
+import img31 from '../../assets/banner5.jpg';
+import img32 from '../../assets/Depositphotos_121792560_original-main-1-3.jpg';
+import img33 from '../../assets/image_5.jpg.webp';
+import img34 from '../../assets/item-14.jpg.webp';
 import {useState} from 'react';
 import Comment from '../Comment/Comment';
 
@@ -55,63 +69,79 @@ const Home = () => {
 
   return (
     <Stack>
+      <Box width={"100%"} display={"flex"} alignItems={"center"} justifyContent={"space-between"}>
+
+<Box sx={{width:"20%",
+  textAlign:"center",
+  // border:1,
+  display:"flex",
+  alignContent:"center",
+  justifyContent:'space-evenly'
+  }}>
+
+<InstagramIcon style={{fontSize:"2rem"}}/>
+<Typography variant='h4' display={["none","block"]} fontFamily={"cursive"}>
+Instagram
+</Typography>
+</Box>
+
+<Box width={"40%"} display={"flex"} justifyContent={"space-around"}>
+  <Link to={"/like"}>
+    <FavoriteBorderOutlinedIcon style={{fontSize:"2rem",color:"black"}}/>
+  </Link>
+  <Link to={"/chat"}>
+    <TelegramIcon style={{fontSize:"2rem",color:"black"}}/>
+  </Link>
+</Box>
+</Box>
+
+<Box display={"flex"} alignItems={"center"} justifyContent={"space-evenly"}>
+<Avatar 
+                          src={proimg}
+                          sx={{border:1,
+                               borderColor:"greenyellow",
+                               height:70,
+                               width:70
+                               }}/>
+                               
+                               <Avatar 
+                          src={img22}
+                          sx={{border:1,
+                               borderColor:"greenyellow",
+                               height:70,
+                               width:70,
+                               }}/>
+                               <Avatar 
+                          src={img24}
+                          sx={{border:1,
+                               borderColor:"greenyellow",
+                               height:70,
+                               width:70,
+                               }}/>
+                               <Avatar 
+                          src={img25}
+                          sx={{border:1,
+                               borderColor:"greenyellow",
+                               height:70,
+                               width:70,
+                               }}/>
+                               <Avatar 
+                          src={img26}
+                          sx={{border:1,
+                               borderColor:"greenyellow",
+                               height:70,
+                               width:70,
+                               }}/>
+                               
+                           
+</Box>
+
+
     <Stack sx={{
         // border:1,
         height:"96vh",width:"80%",margin:"auto"}}>
 
-      {/* Home navbar start */}
-      <Box sx={{
-        // border:1,
-        height:"15%",
-        width:"100%",
-        borderColor:"greenyellow",
-        display:"flex",
-        alignItems:"center",
-        justifyContent:"space-between"
-        }}>
-          <Box sx={{width:"20%",
-                    textAlign:"center",
-                    // border:1,
-                    display:"flex",
-                    alignContent:"center",
-                    justifyContent:'space-evenly'
-                    }}>
 
-          <InstagramIcon style={{fontSize:"3rem"}}/>
-          <Typography variant='h4' display={["none","block"]} fontFamily={"cursive"}>
-            Instagram
-          </Typography>
-          </Box>
-
-          <Box sx={{
-                    // border:1,
-                    width:"40%",
-                    display:["none","flex"],
-                    alignItems:"center",
-                    justifyContent:"center"
-                    }}>
-
-          <SearchIcon style={{fontSize:"2rem",color:"gray"}}/>
-          <Input placeholder='Search' variant='outlined'/>
-          </Box>
-
-          <Box sx={{
-                    // border:1,
-                    width:["75%","20%"],
-                    display:"flex",
-                    justifyContent:"space-evenly",
-                    alignItems:"center"
-                    }}>
-
-          {/* <HomeOutlinedIcon style={{fontSize:"2.5rem"}}/> */}
-          <Link to={'/chat'}><TelegramIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
-          <Link to={'/explore'}><ExploreOutlinedIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
-          <Link to={'/like'}><FavoriteBorderOutlinedIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
-          <Link to={'/userprofile'}><PermIdentityOutlinedIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
-          </Box>
-
-</Box >
-      {/* Home navbar end */}
 
 
 
@@ -152,6 +182,20 @@ const Home = () => {
           <HomeCard image={img18}/> 
           <HomeCard image={img19}/> 
           <HomeCard image={img20}/> 
+          <HomeCard image={img21}/> 
+          <HomeCard image={img22}/> 
+          <HomeCard image={img23}/> 
+          <HomeCard image={img24}/> 
+          <HomeCard image={img25}/> 
+          <HomeCard image={img26}/> 
+          <HomeCard image={img27}/> 
+          <HomeCard image={img28}/> 
+          <HomeCard image={img29}/> 
+          <HomeCard image={img30}/> 
+          <HomeCard image={img31}/> 
+          <HomeCard image={img32}/> 
+          <HomeCard image={img33}/> 
+          <HomeCard image={img34}/> 
         </Box>
         {/* home content end */}
 
@@ -406,11 +450,11 @@ const HomeCard = ({image}:any)=>{
               // border:1, 
               // height:"60vh", 
               width:["100vw","100%"]}}>
-
-      <Box sx={{
+                      <Box sx={{
                 // border:1,
                 display:"flex",
                 alignItems:"center",}}>
+      <Link to={"/userprofile"}>
       <Avatar 
                   src={proimg}
                   sx={{
@@ -420,10 +464,13 @@ const HomeCard = ({image}:any)=>{
                        width:62,
                        ml:2
                        }}/>
+                        </Link>
                        <Box sx={{ml:2}}>
-                        <Typography>
+                        <Link to={"/userprofile"}>
+                        <Typography color={"black"} sx={{textDecorationLine:"none"}}>
                           _nae11
                         </Typography>
+                        </Link>
                         <Typography>
                           Instagram HQ
                         </Typography>
