@@ -40,64 +40,13 @@ const Chat = () => {
   return (
     <Stack sx={{
       // border:1,
-      height:"96vh",width:["80%","80%"],margin:"auto"}}>
-      <Box sx={{
-        // border:1,
-        height:"15%",
-        width:"100%",
-        borderColor:"greenyellow",
-        display:"flex",
-        alignItems:"center",
-        justifyContent:"space-between"
-        }}>
-          <Box sx={{width:"20%",
-                    textAlign:"center",
-                    // border:1,
-                    display:"flex",
-                    alignContent:"center",
-                    justifyContent:'space-evenly'
-                    }}>
-
-          <InstagramIcon style={{fontSize:"3rem"}}/>
-          <Typography variant='h4' display={["none","block"]} fontFamily={"cursive"}>
-            Instagram
-          </Typography>
-          </Box>
-
-          <Box sx={{
-                    // border:1,
-                    width:"40%",
-                    display:["none","flex"],
-                    alignItems:"center",
-                    justifyContent:"center"
-                    }}>
-
-          <SearchIcon style={{fontSize:"2rem",color:"gray"}}/>
-          <Input placeholder='Search' variant='outlined'/>
-          </Box>
-
-          <Box sx={{
-                    // border:1,
-                    width:["75%","15%"],
-                    display:"flex",
-                    justifyContent:"space-evenly",
-                    alignItems:"center"
-                    }}>
-
-           <Link to={'/home'}><HomeOutlinedIcon style={{fontSize:"2.5rem"}}/></Link>
-          {/* <TelegramIcon style={{fontSize:"2.5rem"}}/> */}
-          <Link to={'/explore'}><ExploreOutlinedIcon style={{fontSize:"2.5rem"}}/></Link>
-          <Link to={'/like'}><FavoriteBorderOutlinedIcon style={{fontSize:"2.5rem"}}/></Link>
-          <Link to={'/userprofile'}><PermIdentityOutlinedIcon style={{fontSize:"2.5rem"}}/></Link>
-          </Box>
-
-</Box>
+      height:"96vh",width:["100%","80%"],margin:"auto"}}>
 
 
 
 
 {/* chat body start */}
-<Box sx={{m:2,display:"flex",flexDirection:["column","row"],borderColor:"red",width:"100%"}}>
+<Box sx={{display:"flex",flexDirection:["column","row"],borderColor:"red",width:"100%"}}>
   {/* chat users list start */}
   <Box sx={{
           //  border:1,
@@ -208,13 +157,13 @@ const Chat = () => {
 
   {/* chat content start */}
   <Box sx={{
-            // border:1,
+            border:1,
             borderColor:"green",
             width:["100%","60%"],
             height:["100vw","100%"]}}>
 
     <Box sx={{display:"flex",
-              // border:1,
+              border:2,
               justifyContent:"space-between",
                alignItems:"center",
                width:["100%","60%"],

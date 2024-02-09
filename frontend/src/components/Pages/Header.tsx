@@ -60,7 +60,7 @@ const Header = () => {
 
         <Link to={'/home'}><HomeOutlinedIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
         {/* <TelegramIcon style={{fontSize:"2.5rem"}}/> */}
-        <Link to={'/explore'}><SearchIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
+        <Link to={'/search'}><SearchIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
         <Link to={'/explore'}><AddBoxIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
         <Link to={'/explore'}><SubscriptionsIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
         <Link to={'/profile'}><PermIdentityOutlinedIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>

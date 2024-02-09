@@ -1,23 +1,25 @@
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import ForgotPassword from './components/Pages/ForgotPassword';
-import Home from './components/Pages/Home';
-import Login from './components/Pages/Login';
-import Profile from './components/Pages/Profile';
-import SignUp from './components/Pages/SignUp';
-import Userprofile from './components/Pages/Userprofile';
-// import Header from './components/Pages/Header';/
+import { Route, BrowserRouter as Router, Routes} from 'react-router-dom';
+import {Suspense, lazy} from "react"
+const ForgotPassword= lazy(()=> import("./components/Pages/ForgotPassword"));
+const Home= lazy(()=> import("./components/Pages/Home"));
+const Login= lazy(()=> import("./components/Pages/Login"));
+const Profile= lazy(()=> import("./components/Pages/Profile"));
+const SignUp= lazy(()=> import("./components/Pages/SignUp"));
+const Userprofile= lazy(()=> import("./components/Pages/Userprofile"));
+const Chat= lazy(()=> import("./components/Pages/Chat"));
+const Explore= lazy(()=> import("./components/Pages/Explore"));
+const Like= lazy(()=> import("./components/Pages/Like"));
+const Search= lazy(()=> import("./components/Pages/Search"));
+const EditProfile= lazy(()=> import("./components/Pages/EditProfile"));
 import Cam from './components/Pages/Cam';
-import Chat from './components/Pages/Chat';
-import EditProfile from './components/Pages/EditProfile';
-import Explore from './components/Pages/Explore';
-import Like from './components/Pages/Like';
 import { Toaster } from 'react-hot-toast';
 import Header from './components/Pages/Header';
+import Homescaleton from './components/Loader/Homescaleton';
 
 function App() {
- 
   return (
    <Router>
+    <Suspense fallback={<Homescaleton/>}>
     <Routes>
       <Route path='/home' element={<Home/>} />
       <Route path='/profile' element={<Profile/>}/>
@@ -30,9 +32,12 @@ function App() {
       <Route path='/like' element={<Like/>}/>
       <Route path='/cam' element={<Cam/>}/>
       <Route path='/editprofile' element={<EditProfile/>}/>
-      {/* <Route path='/test' element={<Test/>}/> */}
+      <Route path='/search' element={<Search/>}/>
     </Routes>
+    </Suspense>
+
     <Header/>
+
 
     <Toaster position="top-center"
   reverseOrder={true}/>
