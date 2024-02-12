@@ -11,6 +11,7 @@ const Explore= lazy(()=> import("./components/Pages/Explore"));
 const Like= lazy(()=> import("./components/Pages/Like"));
 const Search= lazy(()=> import("./components/Pages/Search"));
 const EditProfile= lazy(()=> import("./components/Pages/EditProfile"));
+const PageNotFound= lazy(()=> import("./components/Pages/PageNotFound"));
 import Cam from './components/Pages/Cam';
 import { Toaster } from 'react-hot-toast';
 import Header from './components/Pages/Header';
@@ -33,6 +34,7 @@ function App() {
       <Route path='/cam' element={<Cam/>}/>
       <Route path='/editprofile' element={<EditProfile/>}/>
       <Route path='/search' element={<Search/>}/>
+      <Route path='*' element={<PageNotFound/>}/>
     </Routes>
     </Suspense>
 

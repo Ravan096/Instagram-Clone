@@ -17,8 +17,8 @@ import { Link } from 'react-router-dom';
 const Userprofile = () => {
   return (
     <Stack  sx={{
-        // border:1,
-        height:"96vh",width:"80%",margin:"auto"}}>
+        // border:2,
+        height:["","96vh"],width:"100%",margin:"auto"}}>
 
 
 {/*profile start here*/}
@@ -26,11 +26,11 @@ const Userprofile = () => {
 <Box sx={{ 
         // border:1,
         borderColor:"red",
-        height:["100%","30%"],
+        height:["","30%"],
         width:"100%",
         display:"flex",
         flexDirection:["column","column"],
-        mt:6,
+        // mt:6,
         // flexDirection:"column",
         alignItems:["flex-start","flex-start"]}}>
 
@@ -139,7 +139,7 @@ const Userprofile = () => {
                             width:"100%",height:"13%",
                             display:"flex",
                             alignContent:"center",
-                            mt:6,
+                            mt:0.5,
                             justifyContent:"space-evenly"}}>
 
 
@@ -172,42 +172,8 @@ const Userprofile = () => {
                                height:72,
                                width:72,
                                }}/>
-                               <Avatar 
-                          src={proimg}
-                          sx={{border:1,
-                               borderColor:"greenyellow",
-                               height:72,
-                               width:72,
-                               }}/>
-                               <Avatar 
-                          src={proimg}
-                          sx={{border:1,
-                               borderColor:"greenyellow",
-                               height:72,
-                               width:72,
-                               }}/>
-                               <Avatar 
-                          src={proimg}
-                          sx={{border:1,
-                               borderColor:"greenyellow",
-                               height:72,
-                               width:72,
-                               }}/>
-                               <Avatar 
-                          src={proimg}
-                          sx={{border:1,
-                               borderColor:"greenyellow",
-                               height:72,
-                               width:72,
-                               }}/>
-                               <Avatar 
-                          src={proimg}
-                          sx={{border:1,
-                               borderColor:"greenyellow",
-                               height:72,
-                               width:72,
-                               }}/>
-
+                           
+                           
                   </Box>
 
 
@@ -220,7 +186,7 @@ const Userprofile = () => {
 
                   <Box sx={{
                             // border:1,
-                            mt:4,
+                            mt:1,
                             width:"100%",height:"10%",
                   display:"flex",alignItems:"center",
                 justifyContent:"center"}}>
@@ -301,51 +267,73 @@ const Userprofile = () => {
                   <Box sx={{
                           //  border:1,
                            borderColor:"brown",
-                           height:"77%",
+                           height:["","77%"],
                            display:"flex",
                            justifyContent:"center",
                            flexWrap:"wrap",
-                           mt:2,
+                           width:"100%",
+                           mt:1,
                            gap:4}}>
 
                   <Box sx={{
-                            width: 350,
-                            height: 350,
+                            width: 100,
+                            height: 100,
                             backgroundColor: 'greenyellow',
                             '&:hover': {
                             backgroundColor: 'primary',
                             opacity: [0.9, 0.8, 0.7],},}}/>
                   <Box sx={{
-                            width: 350,
-                            height: 350,
+                            width: 100,
+                            height: 100,
                             backgroundColor: 'greenyellow',
                             '&:hover': {
                             backgroundColor: 'primary',
                             opacity: [0.9, 0.8, 0.7],},}}/>
                   <Box sx={{
-                            width: 350,
-                            height: 350,
+                            width: 100,
+                            height: 100,
                             backgroundColor: 'greenyellow',
                             '&:hover': {
                             backgroundColor: 'primary',
                             opacity: [0.9, 0.8, 0.7],},}}/>
                   <Box sx={{
-                            width: 350,
-                            height: 350,
+                            width: 100,
+                            height: 100,
                             backgroundColor: 'greenyellow',
                             '&:hover': {
                             backgroundColor: 'primary',
                             opacity: [0.9, 0.8, 0.7],},}}/>
                   <Box sx={{
-                            width: 350,
-                            height: 350,
+                            width: 100,
+                            height: 100,
                             backgroundColor: 'greenyellow',
                             '&:hover': {
                             backgroundColor: 'primary',
                             opacity: [0.9, 0.8, 0.7],},}}/>
                   <Box sx={{
-                            width: 350,
-                            height: 350,
+                            width: 100,
+                            height: 100,
+                            backgroundColor: 'greenyellow',
+                            '&:hover': {
+                            backgroundColor: 'primary',
+                            opacity: [0.9, 0.8, 0.7],},}}/>
+                  <Box sx={{
+                            width: 100,
+                            height: 100,
+                            backgroundColor: 'greenyellow',
+                            '&:hover': {
+                            backgroundColor: 'primary',
+                            opacity: [0.9, 0.8, 0.7],},}}/>
+                  <Box sx={{
+                            width: 100,
+                            height: 100,
+                            backgroundColor: 'greenyellow',
+                            '&:hover': {
+                            backgroundColor: 'primary',
+                            opacity: [0.9, 0.8, 0.7],},}}/>
+                  <Box sx={{
+                            width: 100,
+                            height: 100,
                             backgroundColor: 'greenyellow',
                             '&:hover': {
                             backgroundColor: 'primary',

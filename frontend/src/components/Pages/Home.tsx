@@ -454,7 +454,7 @@ const HomeCard = ({image}:any)=>{
                 // border:1,
                 display:"flex",
                 alignItems:"center",}}>
-      <Link to={"/userprofile"}>
+      <Link to={"/profile"}>
       <Avatar 
                   src={proimg}
                   sx={{
@@ -466,7 +466,7 @@ const HomeCard = ({image}:any)=>{
                        }}/>
                         </Link>
                        <Box sx={{ml:2}}>
-                        <Link to={"/userprofile"}>
+                        <Link to={"/profile"}>
                         <Typography color={"black"} sx={{textDecorationLine:"none"}}>
                           _nae11
                         </Typography>
