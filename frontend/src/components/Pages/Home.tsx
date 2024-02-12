@@ -48,7 +48,7 @@ import img32 from '../../assets/Depositphotos_121792560_original-main-1-3.jpg';
 import img33 from '../../assets/image_5.jpg.webp';
 import img34 from '../../assets/item-14.jpg.webp';
 import {useState} from 'react';
-import Comment from '../Comment/Comment';
+// import Comment from '../Comment/Comment';
 
 
 
@@ -429,7 +429,8 @@ const HomeCard = ({image}:any)=>{
 
 
   const handleShowComments = () => {
-    setShowComments(!showComments)
+    setShowComments(!showComments);
+    const toggleDrawer=(!showComments)
   };
 
   const handleLike=()=> {
@@ -568,3 +569,42 @@ const HomeCard = ({image}:any)=>{
 }
 
 export default Home
+
+
+
+
+
+
+
+
+
+import {  Drawer } from "@mui/material";
+
+const Comment = () => {
+  const [open, setOpen] = useState(false);
+  const handleClick = () => {
+    setOpen(!open);
+  };
+
+  const renderDrawer = () => {
+    return (
+      <div>
+        <h3>This is the drawer content</h3>
+        <p>You can put anything here</p>
+      </div>
+    );
+  };
+    
+  return (
+    <div>
+      <Button variant="contained" color="primary" onClick={handleClick}>
+        Open Drawer
+      </Button>
+      <Drawer anchor="bottom" open={open} onClose={handleClick}>
+        {renderDrawer()}
+      </Drawer>
+    </div>
+  );
+};
+
+export  {Comment};

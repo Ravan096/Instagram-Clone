@@ -5,6 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import proimg from '../../assets/peakpx.jpg';
@@ -28,8 +29,8 @@ const Like = () => {
 {/* header end */}
 
 <Box sx={{display:"flex",alignItems:"center"}}>
-<Link to={'/'}><ArrowBackIosOutlinedIcon style={{fontSize:"3rem",color:"black"}}/></Link>
-<Typography variant='h4'>
+<Link to={'/home'}><ArrowBackIcon style={{fontSize:"2.5rem",color:"black"}}/></Link>
+<Typography variant='h5'>
   Notification
 </Typography>
 </Box>
@@ -38,144 +39,53 @@ const Like = () => {
 
 
 <Box>
-
-<Box sx={{display:"flex",
-               alignItems:"center",justifyContent:"space-between",
-               width:{lg:"100%",md:"100%",xs:"100%"},
-               p:1}}>
-    <Avatar 
-                  src={proimg}
-                  sx={{
-                      //  border:1,
-                       borderColor:"greenyellow",
-                       height:48,
-                       width:48,
-                       }}/>
-                       <Box >
-                       <Typography variant="h6">
-                          _nae11
-                        </Typography>
-                        <Typography >
-                          requsted to follow you. 21 min
-                        </Typography>
-                        </Box>
-                        <Button variant='contained' >Follow</Button>
+  <NotificationCard image={proimg} name={"user"} desc={"requsted to follow you. 21 min"}/>
+  <NotificationCard image={proimg} name={"admin"} desc={"started following you. 51 min"}/>
+  <NotificationCard image={proimg} name={"user1"} desc={"requsted to follow you. 21 min"}/>
+  <NotificationCard image={proimg} name={"user2"} desc={"requsted to follow you. 3h"}/>
+  <NotificationCard image={proimg} name={"user3"} desc={"hello how are you"}/>
+  <NotificationCard image={proimg} name={"user4"} desc={"hello how are you"}/>
+  <NotificationCard image={proimg} name={"user5"} desc={"hello how are you"}/>
+  <NotificationCard image={proimg} name={"user6"} desc={"hello how are you"}/>
 
     </Box>
-<Box sx={{display:"flex",
-               alignItems:"center",justifyContent:"space-between",
-               width:{lg:"100%",md:"100%",xs:"100%"},p:1}}>
-    <Avatar 
-                  src={proimg}
-                  sx={{
-                      //  border:1,
-                       borderColor:"greenyellow",
-                       height:48,
-                       width:48,
-                       }}/>
-                       <Box>
-                       <Typography variant="h6">
-                          _nae11
-                        </Typography>
-                        <Typography>
-                          started following you. 51 min
-                        </Typography>
-                        </Box>
-                        <Button variant='contained'>Follow</Button>
-
-    </Box>
-<Box sx={{display:"flex",
-               alignItems:"center",justifyContent:"space-between",
-               width:{lg:"100%",md:"100%",xs:"100%"},p:1}}>
-    <Avatar 
-                  src={proimg}
-                  sx={{
-                      //  border:1,
-                       borderColor:"greenyellow",
-                       height:48,
-                       width:48,
-                       }}/>
-                       <Box>
-                       <Typography variant="h6">
-                          _nae11
-                        </Typography>
-                        <Typography>
-                          requsted to follow you. 21 min
-                        </Typography>
-                        </Box>
-                        <Button variant='contained'>Follow</Button>
-
-    </Box>
-<Box sx={{display:"flex",
-               alignItems:"center",justifyContent:"space-between",
-               width:{lg:"100%",md:"100%",xs:"100%"},p:1}}>
-    <Avatar 
-                  src={proimg}
-                  sx={{
-                      //  border:1,
-                       borderColor:"greenyellow",
-                       height:48,
-                       width:48,
-                       }}/>
-                       <Box>
-                       <Typography variant="h6">
-                          _nae11
-                        </Typography>
-                        <Typography>
-                          requsted to follow you. 21 min
-                        </Typography>
-                        </Box>
-                        <Button variant='contained'>Follow</Button>
-
-    </Box>
-<Box sx={{display:"flex",
-               alignItems:"center",justifyContent:"space-between",
-               width:{lg:"100%",md:"100%",xs:"100%"},p:1}}>
-    <Avatar 
-                  src={proimg}
-                  sx={{
-                      //  border:1,
-                       borderColor:"greenyellow",
-                       height:48,
-                       width:48,
-                       }}/>
-                       <Box>
-                       <Typography variant="h6">
-                          _nae11
-                        </Typography>
-                        <Typography>
-                        requsted to follow you. 3h
-                        </Typography>
-                        </Box>
-                        <Button variant='contained'>Follow</Button>
-
-    </Box>
-    <Box sx={{display:"flex",
-               alignItems:"center",justifyContent:"space-between",
-               width:{lg:"100%",md:"100%",xs:"100%"},p:1}}>
-    <Avatar 
-                  src={proimg}
-                  sx={{
-                      //  border:1,
-                       borderColor:"greenyellow",
-                       height:48,
-                       width:48,
-                       }}/>
-                       <Box>
-                       <Typography variant="h6">
-                          _nae11
-                        </Typography>
-                        <Typography>
-                        requsted to follow you. 3h
-                        </Typography>
-                        </Box>
-                        <Button variant='contained'>Follow</Button>
-
-    </Box>
-</Box>
 
 </Stack>
   )
 }
 
 export default Like
+
+
+
+const NotificationCard=({image,name,desc}:any)=>{
+  return(
+    <Box sx={{display:"flex",
+               alignItems:"center",justifyContent:"space-between",
+               width:{lg:"100%",md:"100%",xs:"100%"},
+               p:1}}>
+    <Box sx={{width:"15%"}}>
+    <Avatar 
+                  src={image}
+                  sx={{
+                      //  border:1,
+                       borderColor:"greenyellow",
+                       height:48,
+                       width:48,
+                       }}/>
+    </Box>
+                       <Box width={"60%"}>
+                       <Typography>
+                          {name}
+                        </Typography>
+                        <Typography >
+                          {desc}
+                        </Typography>
+                        </Box>
+                        <Box sx={{mr:1,width:"20%"}}>
+                        <Button variant='contained' >Follow</Button>
+                        </Box>
+
+    </Box>
+  )
+}
