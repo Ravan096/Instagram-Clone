@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom';
+import {  Divider, Drawer, SwipeableDrawer } from "@mui/material";
 import {Stack,Box,Typography,Avatar,Button} from '@mui/material';
 import { Input, } from '@mui/joy';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -48,6 +49,7 @@ import img32 from '../../assets/Depositphotos_121792560_original-main-1-3.jpg';
 import img33 from '../../assets/image_5.jpg.webp';
 import img34 from '../../assets/item-14.jpg.webp';
 import {useState} from 'react';
+import { Global } from '@emotion/react';
 // import Comment from '../Comment/Comment';
 
 
@@ -440,9 +442,15 @@ const HomeCard = ({image}:any)=>{
     setSave(!save);
   }
 
-  // const Test =()=>{
-  //   setColor(!c);
-  // }
+  
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setShowComments(!showComments);
+    setOpen(!open);
+  };
+
+  const drawerBleeding = 56;
 
 
 
@@ -512,7 +520,8 @@ const HomeCard = ({image}:any)=>{
         {  liked ?  <FavoriteIcon onClick={handleLike}  style={{fontSize:"2.5rem",marginLeft:"2%",color: 'crimson'}}/>:
         <FavoriteBorderOutlinedIcon onClick={handleLike} style={{fontSize:"2.5rem",marginLeft:"2%"}}/>}
 
-      <ModeCommentOutlinedIcon onClick={handleShowComments} style={{fontSize:"2.5rem",marginLeft:"2%",}}/>
+      {/* <ModeCommentOutlinedIcon onClick={handleShowComments} style={{fontSize:"2.5rem",marginLeft:"2%",}}/> */}
+      <ModeCommentOutlinedIcon onClick={handleClick} style={{fontSize:"2.5rem",marginLeft:"2%",}}/>
 
         </Box>
       <Box sx={{width:"75%",
@@ -530,7 +539,63 @@ const HomeCard = ({image}:any)=>{
       {/* comments  */}
       <Box sx={{width:"100%"}}>
           {
-          showComments ? <Comment/> : ""
+          showComments ? 
+          // <Box>        
+        <Drawer anchor="bottom" open={open} onClose={handleClick}>
+          {/* {renderDrawer()} */}
+          <div>
+        <Global
+        styles={{
+          '.MuiDrawer-root > .MuiPaper-root': {
+            height: `calc(60% - ${drawerBleeding}px)`,
+            overflow: 'auto',
+          },
+        }}
+      />
+      <SwipeableDrawer
+        anchor="bottom"
+        open={open}
+        onClose={handleClick}
+        onOpen={handleClick}
+        swipeAreaWidth={drawerBleeding}
+        disableSwipeToOpen={false}
+        ModalProps={{
+          keepMounted: true,
+        }}
+      >
+        <Typography sx={{alignSelf:"center",fontWeight:"bold"}}>51 Result</Typography>
+        <Divider sx={
+          {
+            width:"50%",
+            alignSelf:"center",
+            fontSize:"2vh",
+            fontWeight:"bold"
+          }
+        }/>
+        <h3>This is the drawer content</h3>
+        <p>You can put anything here</p>
+        <h3>This is the drawer content</h3>
+        <p>You can put anything here</p>
+        <h3>This is the drawer content</h3>
+        <p>You can put anything here</p>
+        <h3>This is the drawer content</h3>
+        <p>You can put anything here</p>
+        <h3>This is the drawer content</h3>
+        <p>You can put anything here</p>
+        <h3>This is the drawer content</h3>
+        <p>You can put anything here</p>
+        <h3>This is the drawer content</h3>
+        <p>You can put anything here</p>
+        <p>You can put anything here</p>
+        <p>You can put anything here</p>
+        <p>You can put anything here</p>
+      </SwipeableDrawer>
+      </div>
+        </Drawer>
+            // </Box>
+    
+  
+          : ""
           }
         </Box>
 
@@ -571,40 +636,3 @@ const HomeCard = ({image}:any)=>{
 export default Home
 
 
-
-
-
-
-
-
-
-import {  Drawer } from "@mui/material";
-
-const Comment = () => {
-  const [open, setOpen] = useState(false);
-  const handleClick = () => {
-    setOpen(!open);
-  };
-
-  const renderDrawer = () => {
-    return (
-      <div>
-        <h3>This is the drawer content</h3>
-        <p>You can put anything here</p>
-      </div>
-    );
-  };
-    
-  return (
-    <div>
-      <Button variant="contained" color="primary" onClick={handleClick}>
-        Open Drawer
-      </Button>
-      <Drawer anchor="bottom" open={open} onClose={handleClick}>
-        {renderDrawer()}
-      </Drawer>
-    </div>
-  );
-};
-
-export  {Comment};
