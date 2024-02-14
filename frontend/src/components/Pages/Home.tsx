@@ -48,8 +48,9 @@ import img31 from '../../assets/banner5.jpg';
 import img32 from '../../assets/Depositphotos_121792560_original-main-1-3.jpg';
 import img33 from '../../assets/image_5.jpg.webp';
 import img34 from '../../assets/item-14.jpg.webp';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import { Global } from '@emotion/react';
+import axios from 'axios';
 // import Comment from '../Comment/Comment';
 
 
@@ -57,9 +58,7 @@ import { Global } from '@emotion/react';
 
 
 const Home = () => {
-
   
-
   const [followBtn, setFollowBtn]= useState("Follow");
 
   const FollowHandler= ()=>{
@@ -91,7 +90,7 @@ Instagram
   <Link to={"/like"}>
     <FavoriteBorderOutlinedIcon style={{fontSize:"2rem",color:"black"}}/>
   </Link>
-  <Link to={"/chat"}>
+  <Link to={"/message"}>
     <TelegramIcon style={{fontSize:"2rem",color:"black"}}/>
   </Link>
 </Box>
@@ -428,6 +427,24 @@ const HomeCard = ({image}:any)=>{
   const [save, setSave] = useState(false);
   // const [c, setColor] = useState(false);
   const [showComments, setShowComments]=useState(false);
+  const [comment, setComment] = useState([]);
+
+  const url = "https://jsonplaceholder.typicode.com/comments?_limit=20";
+  // const url = "https://api.publicapis.org/entries";
+
+  useEffect(()=>{
+    const fetchComments = async () => {
+      try {
+        const response = await axios.get(url);
+        const data = response.data;
+        console.log(data)
+        setComment(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchComments();
+  },[url]);
 
 
   const handleShowComments = () => {
@@ -543,7 +560,7 @@ const HomeCard = ({image}:any)=>{
           // <Box>        
         <Drawer anchor="bottom" open={open} onClose={handleClick}>
           {/* {renderDrawer()} */}
-          <div>
+          <Box>
         <Global
         styles={{
           '.MuiDrawer-root > .MuiPaper-root': {
@@ -563,7 +580,7 @@ const HomeCard = ({image}:any)=>{
           keepMounted: true,
         }}
       >
-        <Typography sx={{alignSelf:"center",fontWeight:"bold"}}>51 Result</Typography>
+        <Typography sx={{alignSelf:"center",fontWeight:"bold"}}>{comment.length} Result</Typography>
         <Divider sx={
           {
             width:"50%",
@@ -572,25 +589,38 @@ const HomeCard = ({image}:any)=>{
             fontWeight:"bold"
           }
         }/>
-        <h3>This is the drawer content</h3>
-        <p>You can put anything here</p>
-        <h3>This is the drawer content</h3>
-        <p>You can put anything here</p>
-        <h3>This is the drawer content</h3>
-        <p>You can put anything here</p>
-        <h3>This is the drawer content</h3>
-        <p>You can put anything here</p>
-        <h3>This is the drawer content</h3>
-        <p>You can put anything here</p>
-        <h3>This is the drawer content</h3>
-        <p>You can put anything here</p>
-        <h3>This is the drawer content</h3>
-        <p>You can put anything here</p>
-        <p>You can put anything here</p>
-        <p>You can put anything here</p>
-        <p>You can put anything here</p>
+        {
+          comment.map((i:any)=>(
+            <Box sx={{border:1,borderColor:"black",display:"flex",width:"100%",justifyContent:"space-between",alignItems:"center"}} key={i.id}>
+
+              <Box sx={{width:"10%",border:1}}>
+              <Avatar 
+                  src={proimg}
+                  sx={{
+                      //  border:1,
+                       borderColor:"greenyellow",
+                       height:[32,52],
+                       width:[32,52],
+                       }}/>
+              </Box>
+
+              <Box sx={{width:"80%",border:1,display:"flex",flexDirection:"column",alignItems:"flex-start",justifyContent:"center"}}>
+                   <Typography sx={{fontWeight:500}} variant="subtitle2">{i.name}</Typography>
+                  <Typography variant="caption" sx={{ml:2}}>{i.body}</Typography>
+              </Box>
+              
+              <Box sx={{width:"10%",border:1}}>
+              {  liked ?  <FavoriteIcon onClick={handleLike}  style={{fontSize:"2.5rem",color: 'crimson'}}/>:
+        <FavoriteBorderOutlinedIcon onClick={handleLike} style={{fontSize:"2.5rem",}}/>}
+              </Box>
+
+
+
+                  </Box>
+          ))
+        }
       </SwipeableDrawer>
-      </div>
+      </Box>
         </Drawer>
             // </Box>
     
