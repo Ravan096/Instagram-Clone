@@ -185,13 +185,13 @@ const Userprofile = () => {
 {/* navber for contents */}
 
                   <Box sx={{
-                            // border:1,
+                            
                             mt:1,
                             width:"100%",height:"10%",
                   display:"flex",alignItems:"center",
                 justifyContent:"center"}}>
                   <Box sx={{
-                            // border:1,
+                            
                             borderColor:"crimson",
                             width:["100%","60%"],
                             // height:"10%",
@@ -206,7 +206,7 @@ const Userprofile = () => {
                               width:"25%",
                               height:"100%",
                               display:"flex",
-                              justifyContent:"flex-start",
+                              justifyContent:"center",
                               alignItems:"center"
                               }}>
                     <GridOnRoundedIcon style={{fontSize:"3rem"}}/>
@@ -219,7 +219,7 @@ const Userprofile = () => {
                               width:"25%",
                               height:"100%",
                               display:"flex",
-                              justifyContent:"flex-start",
+                              justifyContent:"center",
                               alignItems:"center"
                               }}>
                     <LiveTvRoundedIcon style={{fontSize:"3rem"}}/>
@@ -232,7 +232,7 @@ const Userprofile = () => {
                               width:"25%",
                               height:"100%",
                               display:"flex",
-                              justifyContent:"flex-start",
+                              justifyContent:"center",
                               alignItems:"center"
                               }}>
                     <BookmarkBorderOutlinedIcon style={{fontSize:"3rem"}}/>
@@ -245,7 +245,7 @@ const Userprofile = () => {
                               width:"25%",
                               height:"100%",
                               display:"flex",
-                              justifyContent:"flex-start",
+                              justifyContent:"center",
                               alignItems:"center"
                               }}>
 
