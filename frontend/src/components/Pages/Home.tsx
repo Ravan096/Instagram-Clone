@@ -591,27 +591,32 @@ const HomeCard = ({image}:any)=>{
         }/>
         {
           comment.map((i:any)=>(
-            <Box sx={{border:1,borderColor:"black",display:"flex",width:"100%",justifyContent:"space-between",alignItems:"center"}} key={i.id}>
+            <Box sx={{borderColor:"black",display:"flex",width:"100%",justifyContent:"space-between",alignItems:"center"}} key={i.id} boxSizing={"border-box"}>
 
-              <Box sx={{width:"10%",border:1}}>
+              <Box sx={{width:"90%",display:"flex"}}>
               <Avatar 
                   src={proimg}
                   sx={{
                       //  border:1,
                        borderColor:"greenyellow",
-                       height:[32,52],
-                       width:[32,52],
+                       height:[30,52],
+                       width:[30,52],
+                       mr:1,
+                       ml:0.5,
+                       mt:0.5
                        }}/>
+              {/* <Box sx={{border:1,display:"flex",flexDirection:"column",alignItems:"flex-start",justifyContent:"center"}}> */}
+                   <Typography sx={{fontWeight:800,padding:1}} variant="subtitle2">{"i.name"} 
+                   <Typography variant="caption" sx={{ml:0.5}}>{"i.body i like your body lorem index cam chat message home contact i like your body lorem index cam chat message home contact " }</Typography>
+                   </Typography>
+                  {/* <Typography variant="caption" sx={{ml:2}}>{"i.body i like your body lorem index cam chat message home contact"}</Typography> */}
+              {/* </Box> */}
               </Box>
 
-              <Box sx={{width:"80%",border:1,display:"flex",flexDirection:"column",alignItems:"flex-start",justifyContent:"center"}}>
-                   <Typography sx={{fontWeight:500}} variant="subtitle2">{i.name}</Typography>
-                  <Typography variant="caption" sx={{ml:2}}>{i.body}</Typography>
-              </Box>
               
-              <Box sx={{width:"10%",border:1}}>
-              {  liked ?  <FavoriteIcon onClick={handleLike}  style={{fontSize:"2.5rem",color: 'crimson'}}/>:
-        <FavoriteBorderOutlinedIcon onClick={handleLike} style={{fontSize:"2.5rem",}}/>}
+              <Box sx={{width:"10%",height:"100%",display:"flex",justifyContent:"center",alignItems:"center"}}>
+              {  liked ?  <FavoriteIcon onClick={handleLike}  style={{fontSize:"1rem",color: 'crimson'}}/>:
+        <FavoriteBorderOutlinedIcon onClick={handleLike} style={{fontSize:"1rem",}}/>}
               </Box>
 
 
