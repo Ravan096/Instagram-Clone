@@ -3,7 +3,7 @@ const validator= require('validator');
 const bcrypt = require('bcryptjs')
 
 
-const userSchema= new mongoose.Schema({
+const userSchema= new mongoose.Schema({  
     email:{
         type:String,
         required:true,
@@ -39,15 +39,15 @@ const userSchema= new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
       }],
-      following: [{
+    following: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
       }],
-      posts: [{
+    posts: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Post"
       }],
-      savedPosts: [{
+    savedPosts: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Post"
       }]

@@ -2,7 +2,11 @@ const mongoose =require("mongoose");
 
 
 
-     const Comment = new mongoose.Schema({ 
+     const Comment = new mongoose.Schema({
+        id:{
+            type:mongoose.Schema.Types.ObjectId,
+            auto:true
+        },
     postId: {
            type: mongoose.Schema.Types.ObjectId,
            ref: "Post"
