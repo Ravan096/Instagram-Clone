@@ -119,18 +119,28 @@ exports.DeleteComment = async (req, res) => {
 
 
 exports.getPostRelatedComments =async (req,res,next)=>{
-    const post = await Post.findOne({ _id: req.params.id });
-    const comment = new Comment();
-    comment.content = req.body.content;
-    comment.post = post._id;
-    await comment.save();
-    post.comments.push(comment._id);
-    await post.save();
-    res.send(comment);
-    res.status(201).json({
-        success:true,
-        comment
+  const {postId}= req.body;
+
+  
+    const post = await Post.findById(postId);
+
+    if (!post) {
+      return res.status(404).json({
+        success: false,
+        message: "Post not found",
+      });
+    }
+    post.comments.map((i)=>{
+      console.log(i);
+      const comment= Comment.findById(i._id);
+      console.log(comment.content);
+
     })
+    res.status(200).json({
+      success:true,
+    })
+
+
 }
 
 
