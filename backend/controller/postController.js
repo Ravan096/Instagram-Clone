@@ -18,6 +18,34 @@ exports.createPost =async (req,res,next)=>{
 }
 
 
+exports.UpdateCaption = async (req, res, next)=>{
+  const {postId,caption}= req.body;
+  try{
+    const post= await Post.findById(postId);
+    if (!post) {
+      return res.status(404).json({
+        success: false,
+        message: "Post not found",
+      });
+    }
+    
+    post.caption=caption;
+    await post.save();
+    res.status(200).json({
+      success:true,
+      message:"your caption modified successfully"
+    })
+  
+  }catch(err){
+    res.status(500).json({
+      success:false,
+      message:err.message,
+    })
+  }
+
+}
+
+
 exports.getPost = async(req,res,next)=>{
     const {id}= req.body;
         try {
