@@ -146,8 +146,6 @@ Instagram
 
 
 
-
-
       <Stack direction={["column",'row']}
              sx={{
               // border:1,
